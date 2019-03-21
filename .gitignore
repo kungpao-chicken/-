@@ -28,5 +28,4 @@ HELP.md
 ### VS Code ###
 .vscode/
 
-### pass ###
-src/main/resources
+src/main/resources/application.properties

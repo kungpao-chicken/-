@@ -1,5 +1,6 @@
 package com.shanke.forum.utils;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.StringUtils;
@@ -11,6 +12,10 @@ import org.springframework.util.StringUtils;
 public class JsonUtil {
 
     private static final ObjectMapper objectMapper = new ObjectMapper();
+
+    static {
+        objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+    }
 
     public static <T> String object2Json(T obj) {
         if (obj == null) {

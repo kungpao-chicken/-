@@ -13,14 +13,14 @@ public class RedisSrvTest extends BaseTest {
 
     @Test
     public void saveUserInfo() {
-        UserInfo userInfo = new UserInfo();
+        UserInfo userInfo = new UserInfo("a");
         userInfo.setNickname("wuchaojing");
         redisSrv.saveUserInfo("b", userInfo);
     }
 
     @Test
     public void getUserInfo() {
-        System.out.println(redisSrv.getUserInfo("b"));
+        System.out.println(redisSrv.getUserInfo("8f9b2b3d48590408ee58a0d22b769920"));
     }
 
 }

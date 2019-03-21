@@ -8,11 +8,9 @@ import org.springframework.web.multipart.MultipartFile;
 public class Validate {
 
     public static ResultInfo validateRegister(MultipartFile avatar, UserInfo userInfo) {
-        if (avatar == null) {
-            return new ResultInfo(1, "请上传头像");
-        } else {
-            // todo judge is image or not
 
+        if (StringUtils.isEmpty(userInfo.getAccount())) {
+            return new ResultInfo(1, "请填写账号");
         }
         if (StringUtils.isEmpty(userInfo.getNickname())) {
             return new ResultInfo(1, "请填写昵称");
@@ -26,7 +24,13 @@ public class Validate {
         if (StringUtils.isEmpty(userInfo.getSex())) {
             return new ResultInfo(1, "请选择性别");
         }
-        return new ResultInfo(0, "success");
+        if (avatar == null) {
+            return new ResultInfo(1, "请上传头像");
+        } else {
+            // todo judge is image or not
+
+        }
+        return new ResultInfo(0);
     }
 
 }

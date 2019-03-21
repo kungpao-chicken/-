@@ -8,16 +8,20 @@ public class ResultInfo {
     private String msg;
     private Object data;
 
-    public ResultInfo (int code,String msg,Object data) {
+    public ResultInfo(int code, Object data) {
         this.code = code;
-        this.msg = msg;
         this.data = data;
     }
 
-    public ResultInfo (int code,String msg) {
+    public ResultInfo(int code, String msg) {
         this.code = code;
         this.msg = msg;
     }
+
+    public ResultInfo(int code) {
+        this.code = code;
+    }
+
 
     private ResultInfo setCode(int code) {
         this.code = code;
