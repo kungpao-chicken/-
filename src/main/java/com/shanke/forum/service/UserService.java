@@ -11,5 +11,19 @@ public interface UserService {
 
     ResultInfo register(MultipartFile file, UserInfo userInfo, DeviceInfo deviceInfo);
 
-    ResultInfo login(UserInfo userInfo,DeviceInfo deviceInfo);
+    ResultInfo login(String account, String password, DeviceInfo deviceInfo);
+
+    ResultInfo updatePassword(String userId, String password, String newPassword);
+
+    ResultInfo updateInfo(MultipartFile file, UserInfo userInfo);
+
+    ResultInfo logout(String userId, String token);
+
+    ResultInfo getOneUser(String userId);
+
+    // service call
+
+    void updatePraiseNum(String userId);
+
+    void updateCommentNum(String userId);
 }

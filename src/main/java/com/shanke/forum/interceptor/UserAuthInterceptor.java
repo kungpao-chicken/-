@@ -33,7 +33,7 @@ public class UserAuthInterceptor implements HandlerInterceptor {
         if (!StringUtils.isEmpty(token)) {
             userInfo = redisSrv.getUserInfo(token);
             if (userInfo != null) {
-                request.setAttribute(token, userInfo);
+                redisSrv.setUserInfoExpire(token);
                 return true;
             } else {
                 userInfo = getUserByToken(token);
@@ -41,7 +41,8 @@ public class UserAuthInterceptor implements HandlerInterceptor {
                     response2Client(response);
                     return false;
                 } else {
-                    request.setAttribute(token, userInfo);
+                    redisSrv.saveUserInfo(token, userInfo);
+                    redisSrv.setUserInfoExpire(token);
                     return true;
                 }
             }
@@ -56,7 +57,8 @@ public class UserAuthInterceptor implements HandlerInterceptor {
                 response2Client(response);
                 return false;
             } else {
-                request.setAttribute(newToken, userInfo);
+                redisSrv.saveUserInfo(token, userInfo);
+                redisSrv.setUserInfoExpire(token);
                 return true;
             }
         }

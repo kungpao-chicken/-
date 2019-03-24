@@ -22,7 +22,7 @@ public class TokenUtil {
         return getMd5(device);
     }
 
-    private static String getMd5(String device) {
+    public static String getMd5(String device) {
         byte[] bs = new byte[0];
         try {
             bs = md5.digest(device.getBytes("UTF-8"));
