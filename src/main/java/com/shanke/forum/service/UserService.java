@@ -12,4 +12,10 @@ public interface UserService {
     ResultInfo register(MultipartFile file, UserInfo userInfo, DeviceInfo deviceInfo);
 
     ResultInfo login(UserInfo userInfo,DeviceInfo deviceInfo);
+
+    ResultInfo updatePassword(UserInfo userInfo);
+
+    ResultInfo updateInfo(UserInfo userInfo);
+
+    ResultInfo logout(UserInfo userInfo);
 }

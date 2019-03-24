@@ -41,7 +41,7 @@ public class UserAuthInterceptor implements HandlerInterceptor {
                     response2Client(response);
                     return false;
                 } else {
-                    request.setAttribute(token, userInfo);
+                    redisSrv.setUserInfoExpire(token);
                     return true;
                 }
             }
@@ -56,7 +56,7 @@ public class UserAuthInterceptor implements HandlerInterceptor {
                 response2Client(response);
                 return false;
             } else {
-                request.setAttribute(newToken, userInfo);
+                redisSrv.setUserInfoExpire(newToken);
                 return true;
             }
         }

@@ -24,7 +24,10 @@ public class RedisSrv {
     }
 
     public void setUserInfoExpire(String key) {
-        stringRedisTemplate.expire(key, 7, TimeUnit.DAYS);
+        stringRedisTemplate.expire(key, 1, TimeUnit.HOURS);
     }
 
+    public void delUserInfo(UserInfo userInfo) {
+        stringRedisTemplate.delete(userInfo.getToken());
+    }
 }

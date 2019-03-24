@@ -10,7 +10,7 @@ import java.io.Serializable;
 @Data
 public class UserInfo implements Serializable {
 
-    private Integer userId;
+    private String userId;
     private String account; //学号，唯一
     private String username;
     private String sex;
@@ -41,7 +41,8 @@ public class UserInfo implements Serializable {
         this.token = token;
     }
 
-    public UserInfo(String nickname, String sex, String avatar, String birthday, String sign, Integer score, String token) {
+    public UserInfo(String userId, String nickname, String sex, String avatar, String birthday, String sign, Integer score, String token) {
+        this.userId = userId;
         this.sex = sex;
         this.nickname = nickname;
         this.avatar = avatar;

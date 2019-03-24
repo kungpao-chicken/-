@@ -2,6 +2,7 @@ package com.shanke.forum.validate;
 
 import com.shanke.forum.entity.ResultInfo;
 import com.shanke.forum.entity.UserInfo;
+import com.shanke.forum.utils.ImgUtil;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -26,9 +27,6 @@ public class Validate {
         }
         if (avatar == null) {
             return new ResultInfo(1, "请上传头像");
-        } else {
-            // todo judge is image or not
-
         }
         return new ResultInfo(0);
     }

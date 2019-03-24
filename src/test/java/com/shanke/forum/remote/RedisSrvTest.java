@@ -23,4 +23,10 @@ public class RedisSrvTest extends BaseTest {
         System.out.println(redisSrv.getUserInfo("8f9b2b3d48590408ee58a0d22b769920"));
     }
 
+    @Test
+    public void delete() {
+        UserInfo userInfo = new UserInfo("8f9b2b3d48590408ee58a0d22b769920");
+        redisSrv.delUserInfo(userInfo);
+    }
+
 }
